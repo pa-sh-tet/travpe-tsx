@@ -130,7 +130,7 @@ function Profile() {
               <div className="profile__post-info">
                 <p className="profile__post-date">June 15, 2021</p>
                 <div className="profile__post-communication">
-                  <button className="profile__post-like"></button>
+                  <button className="profile__post-like profile__post-like-filled"></button>
                 </div>
               </div>
             </div>

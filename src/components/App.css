@@ -50,5 +50,10 @@ li {
 }
 
 button {
+  transition: 0.3s;
+}
+
+button:hover {
   cursor: pointer;
+  opacity: 0.8;
 }

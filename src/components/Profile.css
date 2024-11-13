@@ -242,7 +242,13 @@
 .profile__post-like {
   width: 20px;
   height: 20px;
-  background-color: url("../images/HeartIcon.svg");
+  background-image: url("../images/HeartIcon.svg");
   background-size: cover;
   background-position: center;
+  border: none;
+  background-color: transparent;
+}
+
+.profile__post-like-filled {
+  background-image: url("../images/HeartFilledIcon.svg");
 }
