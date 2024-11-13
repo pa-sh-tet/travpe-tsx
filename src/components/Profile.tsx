@@ -3,20 +3,14 @@ import React from "react";
 function Profile() {
   return (
     <section className="profile">
-      <div className="profile__container">
-        <div className="profile__above">
+      {/* <div className="profile__container"> */}
+        <div className="profile__above profile__block-style">
           <div className="profile__face">
-            <div className="profile__avatar">
-              <img
-                className="profile__avatar-img"
-                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80"
-                alt="avatar"
-              />
-            </div>
+            <div className="profile__avatar"></div>
             <div className="profile__info">
               <h2 className="profile__name">John Doe</h2>
               <p className="profile__tag">@johndoe</p>
-              <p className="profile__location">New York, USA</p>
+              {/* <p className="profile__location">New York, USA</p> */}
               <p className="profile__summary">
                 Adventure seeker | 30 countries visited | Photography enthusiast
               </p>
@@ -33,12 +27,12 @@ function Profile() {
             </ul>
             <ul className="profile__stats-item">
               <p className="profile__stats-value">42</p>
-              <p className="profile__stats-name">trips</p>
+              <p className="profile__stats-name">posts</p>
             </ul>
           </li>
         </div>
         <div className="profile__bio">
-          <div className="profile__about">
+          <div className="profile__about profile__block-style">
             <h3 className="profile__about-title">About Me</h3>
             <p className="profile__about-text">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -53,7 +47,7 @@ function Profile() {
               <li className="profile__about-skill">Culture</li>
             </ul>
           </div>
-          <div className="profile__travel-stats">
+          <div className="profile__travel-stats profile__block-style">
             <h3 className="profile__travel-stats-title">Travel Stats</h3>
             {/* TODO сделать отображение itemoв из массива через map */}
             <li className="profile__travel-stats-list">
@@ -106,7 +100,7 @@ function Profile() {
             </ul>
           </li>
         </div>
-      </div>
+      {/* </div> */}
     </section>
   );
 }

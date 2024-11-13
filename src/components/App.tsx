@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
-import Navigation from "./components/Navigation";
-import ProfilePage from "./pages/ProfilePage";
-import MainPage from "./pages/MainPage";
+import Navigation from "./Navigation";
+import ProfilePage from "../pages/ProfilePage";
+import MainPage from "../pages/MainPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -17,13 +17,13 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="app">
       <Navigation />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/profile" element={<ProfilePage />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

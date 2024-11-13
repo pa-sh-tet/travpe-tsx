@@ -1,0 +1,225 @@
+:root {
+  --profile__block-padding: 30px;
+}
+
+.profile {
+  width: 100%;
+  height: auto;
+  padding: 60px 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile__block-style {
+  padding: var(--profile__block-padding);
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile__above {
+  width: calc(100% - 2 * var(--profile__block-padding));
+  height: calc(180px - 2 * var(--profile__block-padding));
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 33px;
+}
+
+.profile__face {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+}
+
+.profile__avatar {
+  min-width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-image: url("https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80");
+  background-size: cover;
+  background-position: center;
+  margin-right: 20px;
+}
+
+.profile__info {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  padding: 20px 0;
+  justify-content: space-between;
+  /* outline: 1px solid red; */
+}
+
+.profile__name {
+  font-size: 30px;
+}
+
+.profile__tag {
+  color: rgb(102, 119, 165);
+}
+
+.profile__summary {
+  opacity: .7;
+}
+
+.profile__stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.profile__stats-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile__stats-value {
+  width: 50px;
+  margin-right: 7px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.profile__stats-name {
+  width: 70px;
+  text-align: left;
+  /* font-weight: light; */
+}
+
+
+
+.profile__bio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  margin-bottom: 33px;
+}
+
+.profile__about {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.profile__about-title {
+  font-size: 22px;
+}
+
+.profile__about-text {
+  color: #4b5563;
+  font-size: 17px;
+  line-height: 25px;
+}
+
+.profile__about-skills {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.profile__about-skill {
+  background-color: #e5e7eb;
+  color: #374456;
+  font-size: 15px;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+.profile__travel-stats {
+  grid-column: 3;
+  /* min-width: calc((1100px - 2 * 33px) / 3 - 2 * var(--profile__block-padding)); */
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.profile__travel-stats-title {
+  font-size: 22px;
+}
+
+.profile__travel-stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.profile__travel-stats-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile__travel-stats-logo {
+  min-width: 20px;
+  height: 20px;
+  background-image: url("https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80");
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  outline: 1px solid #000;
+  margin-right: 5px;
+}
+
+.profile__travel-stats-name {
+  text-align: left;
+  width: calc(100% - 30% - 10px);
+  line-height: 20px;
+}
+
+.profile__travel-stats-value {
+  font-weight: bold;
+  text-align: right;
+  width: calc(100% - 70% - 10px);
+}
+
+.profile__content {
+
+}
+
+.profile__content-title {
+
+}
+
+.profile__content-list {
+
+}
+
+.profile__post {
+
+}
+
+.profile__post-image {
+
+}
+
+.profile__post-container {
+
+}
+
+.profile__post-title {
+
+}
+
+.profile__post-description {
+
+}
+
+.profile__post-info {
+
+}
+
+.profile__post-date {
+
+}
+
+.profile__post-communication {
+
+}
+
+.profile__post-like {
+
+}
+
