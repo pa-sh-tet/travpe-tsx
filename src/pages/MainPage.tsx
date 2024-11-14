@@ -2,9 +2,9 @@ import React from "react";
 
 function MainPage() {
   return (
-    <>
-      <h1>main page</h1>
-    </>
+    <div className="main-page">
+      {/* <h1>main page</h1> */}
+    </div>
   );
 }
 

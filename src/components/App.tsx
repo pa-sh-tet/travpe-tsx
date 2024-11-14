@@ -5,7 +5,6 @@ import Navigation from "./Navigation";
 import ProfilePage from "../pages/ProfilePage";
 import MainPage from "../pages/MainPage";
 
-
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
 
@@ -19,11 +18,13 @@ function App() {
 
   return (
     <div className="app">
-      <Navigation />
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-      </Routes>
+      {/* <div className="page"> */}
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+        </Routes>
+      {/* </div> */}
     </div>
   );
 }

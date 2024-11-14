@@ -217,7 +217,8 @@
 
 .profile__post-description {
   max-height: 44px;
-  overflow: hidden; /* TODO доделать переполнение текста */
+  overflow: auto; /* TODO доделать переполнение текста */
+  scrollbar-width: 1px;
   margin-bottom: 15px;
   color: #4b5563;
   line-height: 20px;
@@ -234,9 +235,6 @@
   color: #6b7280;
   font-size: 13px;
   line-height: 20px;
-}
-
-.profile__post-communication {
 }
 
 .profile__post-like {

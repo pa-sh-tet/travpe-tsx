@@ -1,0 +1,86 @@
+.nav {
+  background-color: #fff;
+  width: 100%;
+  height: calc(50px - 2 * 10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.nav__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: calc(1280px - 2 * 90px);
+  padding: 0 90px;
+  height: 30px;
+  align-items: center;
+}
+
+.nav__logo {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.nav__logo-icon {
+  width: 30px;
+  height: 30px;
+  background-image: url("../images/logoMain.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.nav__logo-text {
+  align-items: center;
+  line-height: 30px;
+}
+
+.nav__links {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.nav__link {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  line-height: 20px;
+  align-items: center;
+  font-size: 14px;
+  text-decoration: none;
+  color: #000;
+  font-weight: normal;
+}
+
+.nav__link_active {
+  font-weight: bold;
+}
+
+.nav__link-icon {
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  background-position: center;
+  /* background-image: url("../images/homeIcon.png"); */
+}
+
+.home-icon {
+  background-image: url("../images/homeIcon.svg");
+}
+
+.home-icon_active {
+  background-image: url("../images/homeIconFilled.png");
+}
+
+.profile-icon {
+  background-image: url("../images/profileIcon.svg");
+}
+
+.profile-icon_active {
+  background-image: url("../images/profileIconFilled.png");
+}
