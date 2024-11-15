@@ -4,9 +4,10 @@ import "./App.css";
 import Navigation from "./Navigation";
 import ProfilePage from "../pages/ProfilePage";
 import MainPage from "../pages/MainPage";
+import SettingsPage from "../pages/SettingsPage";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/settings" element={<SettingsPage />} />
         </Routes>
       {/* </div> */}
     </div>

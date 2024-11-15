@@ -1,4 +1,65 @@
+:root {
+  --main__block-padding: 18px;
+}
+
+.block-style {
+  padding: var(--main__block-padding);
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .main {
-  height: 100vh;
-  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1110px;
+  /* outline: 1px solid red; */
+  margin: 40px 0;
+}
+
+.main__info-column {
+
+}
+.main__profile {
+}
+.main__profile-face {
+}
+.main__profile-avatar {
+}
+.main__profile-info {
+}
+.main__profile-name {
+}
+.main__profile-tag {
+}
+.main__profile-stats {
+}
+.main__profile-stats-item {
+}
+.main__profile-stats-value {
+}
+.main__profile-stats-name {
+}
+.main__destinations {
+}
+.main__destinations-title {
+}
+.main__destinations-list {
+}
+.main__destinations-item {
+}
+.main__destinations-item-image {
+}
+.main__destinations-item-name {
+}
+.main__tags {
+}
+.main__tags-title {
+}
+.main__tags-list {
+}
+.main__tags-item {
+}
+.main__posts-column {
 }

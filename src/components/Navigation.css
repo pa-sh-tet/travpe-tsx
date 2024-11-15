@@ -51,7 +51,7 @@
   display: flex;
   flex-direction: row;
   gap: 5px;
-  line-height: 20px;
+  /* line-height: 0; */
   align-items: center;
   font-size: 14px;
   text-decoration: none;
@@ -69,6 +69,7 @@
   height: 20px;
   background-size: cover;
   background-position: center;
+  margin-bottom: 3px;
 }
 
 /* TODO сделать корректные по пропорциям иконки */
@@ -86,4 +87,12 @@
 
 .profile-icon_active {
   background-image: url("../images/profileIconFilled.png");
+}
+
+.settings-icon {
+  background-image: url("../images/settingsIcon.png");
+}
+
+.settings-icon_active {
+  background-image: url("../images/settingsIconFilled.png");
 }

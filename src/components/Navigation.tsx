@@ -1,9 +1,5 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import homeIcon from "../images/homeIcon.png";
-import homeIconFilled from "../images/homeIconFilled.png";
-import profileIcon from "../images/profileIcon.png";
-import profileIconFilled from "../images/profileIconFilled.png";
 
 function Navigation() {
   const location = useLocation();
@@ -42,9 +38,13 @@ function Navigation() {
             />
             Profile
           </Link>
-          <Link to="/" className="nav__link">
-            <div className="nav__link-icon" />
-            Logout
+          <Link to="/settings" className="nav__link">
+            <div
+              className={`nav__link-icon settings-icon ${
+                location.pathname === "/settings" ? "settings-icon_active" : ""
+              }`}
+            />
+            Settings
           </Link>
         </div>
       </div>
