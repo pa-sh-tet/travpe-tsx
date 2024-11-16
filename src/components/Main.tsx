@@ -1,4 +1,6 @@
 import React from "react";
+import mountains from "../images/mountains.png";
+// import girl from ""
 
 function Main() {
   return (
@@ -58,7 +60,11 @@ function Main() {
       </div>
       <div className="main__posts-column">
         <form className="main__form block-style">
-          <input placeholder="Share your travel experience..." type="text" className="main__form-text-input" />
+          <input
+            placeholder="Share your travel experience..."
+            type="text"
+            className="main__form-text-input"
+          />
           <div className="main__form-container">
             <div className="main__form-inputs">
               <input type="file" className="main__form-image-input" />
@@ -70,8 +76,35 @@ function Main() {
         <div className="main__posts">
           {/* TODO сделать через массив */}
           {/* TODO при наведении на картинку, посередине отображается локация */}
-          <div className="main__post block-style">
-            <div className="main__post-image"></div>
+          <div className="main__post">
+            <div
+              className="main__post-image"
+              style={{ backgroundImage: "url(" + mountains + ")" }}
+            ></div>
+            <div className="main__post-container">
+              <p className="main__post-description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio,
+                dolore. Tempora magnam blanditiis vero consectetur iure voluptas
+                in? Odio molestias dicta iure aperiam expedita illo amet itaque
+                ab natus mollitia!
+              </p>
+              <div className="main__post-info">
+                <div className="main__post-about">
+                  <p className="main__post-author">John Doe</p>
+                  <p className="main__post-date">June 15, 2024</p>
+                </div>
+                <div className="main__post-likes">
+                  <button className="main__post-like-button"></button>
+                  <p className="main__post-likes-value">15</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="main__post">
+            <div
+              className="main__post-image"
+              style={{ backgroundImage: "url(" + mountains + ")" }}
+            ></div>
             <div className="main__post-container">
               <p className="main__post-description">jamaika</p>
               <div className="main__post-info">
@@ -80,7 +113,7 @@ function Main() {
                   <p className="main__post-date">June 15, 2024</p>
                 </div>
                 <div className="main__post-likes">
-                  <div className="main__post-likes-icon"></div>
+                  <button className="main__post-like-button"></button>
                   <p className="main__post-likes-value">15</p>
                 </div>
               </div>
