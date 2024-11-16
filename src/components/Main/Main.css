@@ -105,7 +105,7 @@
 .main__destinations-item-image {
   width: 16px;
   height: 16px;
-  background-image: url("../images/placeIcon.png");
+  background-image: url("../../images/placeIcon.png");
   background-size: cover;
   background-position: center;
 }
@@ -147,7 +147,29 @@
   gap: 40px;
 }
 
-.main__form {
+.main__post-add-button {
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #374151;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 20px;
+  border-radius: 30px;
+}
+
+.main__post-add-button-icon {
+  width: 25px;
+  height: 25px;
+  background-image: url("../../images/AddIcon.svg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* .main__form {
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -185,7 +207,7 @@
   padding: 7px 15px;
   border-radius: 20px;
   font-size: 13px;
-}
+} */
 
 .main__posts {
   display: flex;
@@ -193,80 +215,3 @@
   gap: 30px;
 }
 
-.main__post {
-  display: flex;
-  flex-direction: column;
-  /* gap: 20px; */
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.main__post-image {
-  width: 100%;
-  height: 400px;
-  background-image: url("");
-  background-size:contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 12px;
-  background-color:#cfd0d2;
-  /* margin-bottom: 20px; */
-}
-
-.main__post-container {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  min-height: calc(120px - 2 * 20px);
-  /* justify-content: space-between; */
-  gap: 20px;
-}
-
-.main__post-description {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.main__post-info {
-  display: flex;
-  justify-content: space-between;
-}
-
-.main__post-about {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.main__post-author {
-  font-size: 16px;
-  color: #335270;
-}
-
-.main__post-date {
-  font-size: 14px;
-  color: #4F7396;
-}
-
-.main__post-likes {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 3px;
-}
-
-.main__post-like-button {
-  background-image: url("../images/HeartIcon.svg");
-  background-size: cover;
-  background-position: center;
-  width: 20px;
-  height: 20px;
-  border: none;
-  background-color: transparent;
-}
-
-.main__post-likes-value {
-  font-size: 14px;
-  color: #4B5563;
-}

@@ -28,7 +28,7 @@
 .nav__logo-icon {
   width: 30px;
   height: 30px;
-  background-image: url("../images/logoMain.png");
+  background-image: url("../../images/logoMain.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -75,25 +75,25 @@
 
 /* TODO сделать корректные по пропорциям иконки */
 .home-icon {
-  background-image: url("../images/homeIcon.svg");
+  background-image: url("../../images/homeIcon.svg");
 }
 
 .home-icon_active {
-  background-image: url("../images/homeIconFilled.png");
+  background-image: url("../../images/homeIconFilled.png");
 }
 
 .profile-icon {
-  background-image: url("../images/profileIcon.png");
+  background-image: url("../../images/profileIcon.png");
 }
 
 .profile-icon_active {
-  background-image: url("../images/profileIconFilled.png");
+  background-image: url("../../images/profileIconFilled.png");
 }
 
 .settings-icon {
-  background-image: url("../images/settingsIcon.png");
+  background-image: url("../../images/settingsIcon.png");
 }
 
 .settings-icon_active {
-  background-image: url("../images/settingsIconFilled.png");
+  background-image: url("../../images/settingsIconFilled.png");
 }

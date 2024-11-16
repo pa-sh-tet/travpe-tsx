@@ -1,8 +1,8 @@
 import React from "react";
-import mountains from "../images/mountains.png";
-// import girl from ""
+import Post from "../Post/Post";
+import { PostData } from "../../utils/types";
 
-function Main() {
+function Main({ posts }: { posts: PostData[] }) {
   return (
     <section className="main">
       <div className="main__info-column">
@@ -59,70 +59,33 @@ function Main() {
         </div>
       </div>
       <div className="main__posts-column">
-        <form className="main__form block-style">
-          <input
-            placeholder="Share your travel experience..."
-            type="text"
-            className="main__form-text-input"
-          />
-          <div className="main__form-container">
-            <div className="main__form-inputs">
-              <input type="file" className="main__form-image-input" />
-              <input type="text" className="main__form-location-input" />
-            </div>
-            <button className="main__form-button">POST</button>
-          </div>
-        </form>
+        <button className="main__post-add-button block-style">
+          <div className="main__post-add-button-icon"></div>Create new post
+        </button>
         <div className="main__posts">
-          {/* TODO сделать через массив */}
-          {/* TODO при наведении на картинку, посередине отображается локация */}
-          <div className="main__post">
-            <div
-              className="main__post-image"
-              style={{ backgroundImage: "url(" + mountains + ")" }}
-            ></div>
-            <div className="main__post-container">
-              <p className="main__post-description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio,
-                dolore. Tempora magnam blanditiis vero consectetur iure voluptas
-                in? Odio molestias dicta iure aperiam expedita illo amet itaque
-                ab natus mollitia!
-              </p>
-              <div className="main__post-info">
-                <div className="main__post-about">
-                  <p className="main__post-author">John Doe</p>
-                  <p className="main__post-date">June 15, 2024</p>
-                </div>
-                <div className="main__post-likes">
-                  <button className="main__post-like-button"></button>
-                  <p className="main__post-likes-value">15</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="main__post">
-            <div
-              className="main__post-image"
-              style={{ backgroundImage: "url(" + mountains + ")" }}
-            ></div>
-            <div className="main__post-container">
-              <p className="main__post-description">jamaika</p>
-              <div className="main__post-info">
-                <div className="main__post-about">
-                  <p className="main__post-author">John Doe</p>
-                  <p className="main__post-date">June 15, 2024</p>
-                </div>
-                <div className="main__post-likes">
-                  <button className="main__post-like-button"></button>
-                  <p className="main__post-likes-value">15</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          {posts.map((post, index) => (
+            <Post key={index} {...post} />
+          ))}
         </div>
       </div>
     </section>
   );
 }
+
+// TODO добавить попап формы добавления поста
+// {/* <form className="main__form block-style">
+//   <input
+//     placeholder="Share your travel experience..."
+//     type="text"
+//     className="main__form-text-input"
+//   />
+//   <div className="main__form-container">
+//     <div className="main__form-inputs">
+//       <input type="file" className="main__form-image-input" />
+//       <input type="text" className="main__form-location-input" />
+//     </div>
+//     <button className="main__form-button">POST</button>
+//   </div>
+// </form> */}
 
 export default Main;
