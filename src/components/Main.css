@@ -140,5 +140,96 @@
 }
 
 .main__posts-column {
+  width: 780px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.main__form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.main__form-text-input {
+  border: none;
+  background-color: #F3F4F6;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.main__form-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.main__form-inputs {
+
+}
+
+.main__form-image-input {
+
+}
+
+.main__form-location-input {
+
+}
+
+.main__form-button {
+  border: none;
+  background-color: #3B82F6;
+  color: #fff;
+  padding: 7px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.main__posts {
+
+}
+
+.main__post {
+
+}
+
+.main__post-image {
+
+}
+
+.main__post-container {
+
+}
+
+.main__post-description {
+
+}
+
+.main__post-info {
+
+}
+
+.main__post-about {
+
+}
+
+.main__post-author {
+
+}
+
+.main__post-date {
+
+}
+
+.main__post-likes {
+
+}
+
+.main__post-likes-icon {
+
+}
+
+.main__post-likes-value {
 
 }
