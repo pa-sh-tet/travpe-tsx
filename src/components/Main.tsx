@@ -19,11 +19,11 @@ function Main() {
             </div>
             <div className="main__profile-stats-item">
               <p className="main__profile-stats-value">250</p>
-              <p className="main__profile-stats-name">Posts</p>
+              <p className="main__profile-stats-name">Followers</p>
             </div>
             <div className="main__profile-stats-item">
               <p className="main__profile-stats-value">250</p>
-              <p className="main__profile-stats-name">Posts</p>
+              <p className="main__profile-stats-name">Following</p>
             </div>
           </div>
         </div>
@@ -37,11 +37,11 @@ function Main() {
             </li>
             <li className="main__destinations-item">
               <div className="main__destinations-item-image"></div>
-              <p className="main__destinations-item-name">Bali, Indonesia</p>
+              <p className="main__destinations-item-name">Santorini, Greece</p>
             </li>
             <li className="main__destinations-item">
               <div className="main__destinations-item-image"></div>
-              <p className="main__destinations-item-name">Bali, Indonesia</p>
+              <p className="main__destinations-item-name">Tokyo, Japan</p>
             </li>
           </ul>
         </div>
@@ -56,7 +56,29 @@ function Main() {
           </ul>
         </div>
       </div>
-      <div className="main__posts-column"></div>
+      <div className="main__posts-column">
+        <form className="main__form block-style">
+          <input type="text" className="main__form-text-input" />
+          <div className="main__form-container">
+            <div className="main__form-inputs">
+              <input type="file" className="main__form-image-input" />
+              <input type="text" className="main__form-location-input" />
+            </div>
+            <button className="main__form-button">Post</button>
+          </div>
+        </form>
+        <div className="main__posts">
+          <div className="main__post block-style">
+            <div className="main__post-image"></div>
+            <div className="main__post-container">
+              <p className="main__post-description"></p>
+              <div className="main__post-info">
+                <div className="main__post-about"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
