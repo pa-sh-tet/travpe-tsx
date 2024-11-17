@@ -5,13 +5,15 @@ import { PostData, UserData } from "../../utils/types";
 function ProfilePage({
   userPosts,
   user,
+  onAddPost,
 }: {
   userPosts: PostData[];
   user: UserData;
+  onAddPost: () => void;
 }) {
   return (
     <div className="profile-page">
-      <Profile userPosts={userPosts} user={user} />
+      <Profile userPosts={userPosts} user={user} onAddPost={onAddPost} />
     </div>
   );
 }

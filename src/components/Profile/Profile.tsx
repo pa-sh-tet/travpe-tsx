@@ -5,13 +5,14 @@ import { PostData, UserData } from "../../utils/types";
 function Profile({
   userPosts,
   user,
+  onAddPost,
 }: {
   userPosts: PostData[];
   user: UserData;
+  onAddPost: () => void;
 }) {
   return (
     <section className="profile">
-      {/* <div className="profile__container"> */}
       <div className="profile__above profile__block-style">
         <div className="profile__face">
           <div
@@ -86,12 +87,15 @@ function Profile({
       <div className="profile__content">
         <h2 className="profile__content-title">Recent Posts</h2>
         <ul className="profile__content-list">
+          <button className="profile__content-add-button block-style" onClick={onAddPost}>
+            <div className="profile__content-add-logo"></div>
+            <p className="profile__content-add-text">Add New Post</p>
+          </button>
           {userPosts.map((post, index) => (
             <Post key={index} {...post} />
           ))}
         </ul>
       </div>
-      {/* </div> */}
     </section>
   );
 }
