@@ -4,16 +4,23 @@ import { PostData, UserData } from "../../utils/types";
 
 function ProfilePage({
   userPosts,
-  user,
+  currentUser,
   onAddPost,
+  onPostLike,
 }: {
   userPosts: PostData[];
-  user: UserData;
+  currentUser: UserData;
   onAddPost: () => void;
+  onPostLike: () => void;
 }) {
   return (
     <div className="profile-page">
-      <Profile userPosts={userPosts} user={user} onAddPost={onAddPost} />
+      <Profile
+        userPosts={userPosts}
+        currentUser={currentUser}
+        onAddPost={onAddPost}
+        onPostLike={onPostLike}
+      />
     </div>
   );
 }

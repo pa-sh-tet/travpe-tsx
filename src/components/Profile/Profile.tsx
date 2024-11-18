@@ -4,12 +4,14 @@ import { PostData, UserData } from "../../utils/types";
 
 function Profile({
   userPosts,
-  user,
+  currentUser,
   onAddPost,
+  onPostLike,
 }: {
   userPosts: PostData[];
-  user: UserData;
+  currentUser: UserData;
   onAddPost: () => void;
+  onPostLike: () => void;
 }) {
   return (
     <section className="profile">
@@ -17,22 +19,22 @@ function Profile({
         <div className="profile__face">
           <div
             className="profile__avatar"
-            style={{ backgroundImage: "url(" + user.avatar + ")" }}
+            style={{ backgroundImage: "url(" + currentUser.avatar + ")" }}
           ></div>
           <div className="profile__info">
-            <h2 className="profile__name">{user.name}</h2>
-            <p className="profile__tag">@{user.tag}</p>
+            <h2 className="profile__name">{currentUser.name}</h2>
+            <p className="profile__tag">@{currentUser.tag}</p>
             {/* <p className="profile__location">New York, USA</p> */}
-            <p className="profile__summary">{user.summary}</p>
+            <p className="profile__summary">{currentUser.summary}</p>
           </div>
         </div>
         <li className="profile__stats">
           <ul className="profile__stats-item">
-            <p className="profile__stats-value">{user.followers}</p>
+            <p className="profile__stats-value">{currentUser.followers}</p>
             <p className="profile__stats-name">followers</p>
           </ul>
           <ul className="profile__stats-item">
-            <p className="profile__stats-value">{user.following}</p>
+            <p className="profile__stats-value">{currentUser.following}</p>
             <p className="profile__stats-name">following</p>
           </ul>
           <ul className="profile__stats-item">
@@ -44,7 +46,7 @@ function Profile({
       <div className="profile__bio">
         <div className="profile__about profile__block-style">
           <h3 className="profile__about-title">About Me</h3>
-          <p className="profile__about-text">{user.aboutMe}</p>
+          <p className="profile__about-text">{currentUser.aboutMe}</p>
           <ul className="profile__about-skills">
             <li className="profile__about-skill">Adventure</li>
             <li className="profile__about-skill">Photography</li>
@@ -87,12 +89,20 @@ function Profile({
       <div className="profile__content">
         <h2 className="profile__content-title">Recent Posts</h2>
         <ul className="profile__content-list">
-          <button className="profile__content-add-button block-style" onClick={onAddPost}>
+          <button
+            className="profile__content-add-button block-style"
+            onClick={onAddPost}
+          >
             <div className="profile__content-add-logo"></div>
             <p className="profile__content-add-text">Add New Post</p>
           </button>
           {userPosts.map((post, index) => (
-            <Post key={index} {...post} />
+            <Post
+              key={index}
+              {...post}
+              onPostLike={onPostLike}
+              currentUser={currentUser}
+            />
           ))}
         </ul>
       </div>

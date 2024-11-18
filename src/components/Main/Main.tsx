@@ -1,30 +1,47 @@
 import React from "react";
 import Post from "../Post/Post";
-import { PostData } from "../../utils/types";
+import { PostData, UserData } from "../../utils/types";
 
-function Main({ posts }: { posts: PostData[] }) {
+function Main({
+  posts,
+  onAddPost,
+  currentUser,
+  onPostLike
+}: {
+  posts: PostData[];
+  onAddPost: () => void;
+  currentUser: UserData;
+  onPostLike: () => void
+}) {
   return (
     <section className="main">
       <div className="main__info-column">
         <div className="main__profile block-style">
           <div className="main__profile-face">
-            <div className="main__profile-avatar"></div>
+            <div
+              className="main__profile-avatar"
+              style={{ backgroundImage: "url(" + currentUser.avatar + ")" }}
+            ></div>
             <div className="main__profile-info">
-              <h3 className="main__profile-name">John Doe</h3>
-              <p className="main__profile-tag">@johndoe</p>
+              <h3 className="main__profile-name">{currentUser.name}</h3>
+              <p className="main__profile-tag">@{currentUser.tag}</p>
             </div>
           </div>
           <div className="main__profile-stats">
             <div className="main__profile-stats-item">
-              <p className="main__profile-stats-value">250</p>
+              <p className="main__profile-stats-value">{posts.length}</p>
               <p className="main__profile-stats-name">Posts</p>
             </div>
             <div className="main__profile-stats-item">
-              <p className="main__profile-stats-value">250</p>
+              <p className="main__profile-stats-value">
+                {currentUser.followers}
+              </p>
               <p className="main__profile-stats-name">Followers</p>
             </div>
             <div className="main__profile-stats-item">
-              <p className="main__profile-stats-value">250</p>
+              <p className="main__profile-stats-value">
+                {currentUser.following}
+              </p>
               <p className="main__profile-stats-name">Following</p>
             </div>
           </div>
@@ -59,12 +76,15 @@ function Main({ posts }: { posts: PostData[] }) {
         </div>
       </div>
       <div className="main__posts-column">
-        <button className="main__post-add-button block-style">
+        <button
+          className="main__post-add-button block-style"
+          onClick={onAddPost}
+        >
           <div className="main__post-add-button-icon"></div>Create new post
         </button>
         <div className="main__posts">
           {posts.map((post, index) => (
-            <Post key={index} {...post} />
+            <Post key={index} {...post} onPostLike={onPostLike} currentUser={currentUser} />
           ))}
         </div>
       </div>

@@ -1,16 +1,87 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { PostData, UserData } from "../../utils/types";
 
-export default function AddPostPopup({ isOpen, isSuccess, onClose }: { isOpen: boolean, isSuccess: boolean, onClose: () => void }) {
+export default function AddPostPopup({
+  isOpen,
+  onClose,
+  onSubmit,
+  currentUser,
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+  onSubmit: (data: PostData) => void;
+  currentUser: UserData;
+}) {
+  const [image, setImage] = useState<File | null | string>(null);
+  const [description, setDescription] = useState<string>("");
+
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const newPost: PostData = {
+      image,
+      description,
+      author: currentUser.name,
+      date: "22-11-22",
+      likes: [],
+    };
+    onSubmit(newPost);
+  };
+
+  const handleImageChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setImage(imageUrl);
+    }
+  };
+
+  const handleDescriptionChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setDescription(event.target.value);
+  };
+
+  useEffect(() => {
+    setImage(null);
+    setDescription("");
+  }, [isOpen]);
 
   return (
     <section className={`popup ${isOpen ? `popup_active` : ""}`}>
-      <div className="popup__container">
-        <div className={`popup__image ${isSuccess ? `popup__image_ok` : `popup__image_bad`}`}></div>
-        <h3 className="popup__title">
-          {isSuccess ? "Вы успешно зарегистрировались!" : "Что-то пошло не так! Попробуйте ещё раз."}
-        </h3>
-        <button type="button" className="popup__close-button" onClick={onClose}></button>
+      <div className="popup__container block-style">
+        <h2 className="popup__title">Add Post</h2>
+        <form action="" className="popup__form" onSubmit={handleFormSubmit}>
+          <input
+            type="text"
+            placeholder="Share your travel experience..."
+            className="popup__form-text-input"
+            name="description"
+            value={description}
+            onChange={handleDescriptionChange}
+          />
+          <div className="popup__form-container">
+            <div className="popup__form-inputs">
+              <input
+                type="file"
+                className="popup__form-image-input"
+                name="image"
+                // value={image}
+                onChange={handleImageChange}
+                required
+              />
+              {/* <input type="text" className="popup__form-location-input" /> */}
+            </div>
+            <button className="popup__form-button">POST</button>
+          </div>
+        </form>
+        <button
+          type="button"
+          className="popup__close-button"
+          onClick={onClose}
+        ></button>
       </div>
     </section>
-  )
+  );
 }

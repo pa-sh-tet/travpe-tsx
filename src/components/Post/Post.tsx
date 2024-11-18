@@ -1,10 +1,19 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { PostData } from "../../utils/types";
+import { PostData, UserData } from "../../utils/types";
 
-function Post({ image, description, author, date, likes }: PostData) {
+function Post({
+  image,
+  description,
+  author,
+  date,
+  likes,
+  onPostLike,
+  currentUser,
+}: PostData & { onPostLike: () => void } & { currentUser: UserData }) {
   const location = useLocation();
-
+  const isLiked = (likes as { _id: string }[]).some((i) => i._id === currentUser._id);
+  
   // TODO при наведении на картинку, посередине отображается локация
   return location.pathname === "/" ? (
     <div className="main__post">
@@ -20,8 +29,13 @@ function Post({ image, description, author, date, likes }: PostData) {
             <p className="main__post-date">{date}</p>
           </div>
           <div className="main__post-likes">
-            <button className="main__post-like-button"></button>
-            <p className="main__post-likes-value">{likes}</p>
+            <button
+              className={`main__post-like-button ${
+                isLiked ? "profile__post-like-button_active" : ""
+              }`}
+              onClick={onPostLike}
+            ></button>
+            <p className="main__post-likes-value">{likes.length}</p>
           </div>
         </div>
       </div>
@@ -37,8 +51,12 @@ function Post({ image, description, author, date, likes }: PostData) {
         <div className="profile__post-info">
           <p className="profile__post-date">{date}</p>
           <div className="profile__post-likes">
-            <button className="profile__post-like-button"></button>
-            <p className="profile__post-likes-value">{likes}</p>
+            <button
+              className={`profile__post-like-button ${
+                isLiked ? "profile__post-like-button_active" : ""
+              }`}
+            ></button>
+            <p className="profile__post-likes-value">{likes.length}</p>
           </div>
         </div>
       </div>

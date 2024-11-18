@@ -6,12 +6,25 @@ import Navigation from "../Navigation/Navigation";
 import ProfilePage from "../../pages/ProfilePage/ProfilePage";
 import MainPage from "../../pages/MainPage/MainPage";
 import SettingsPage from "../../pages/SettingsPage/SettingsPage";
-import mountains from "../../images/mountains.png";
 import { PostData, UserData } from "../../utils/types";
+import { startMainPosts, startUserPosts, startUser } from "../../utils/dataStart";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [isAddPostPopupOpen, setIsAddPostPopupOpen] = useState<boolean>(false);
+  const [mainPosts, setMainPosts] = useState<PostData[]>([]);
+  const [userPosts, setUserPosts] = useState<PostData[]>([]);
+  const [currentUser, setCurrentUser] = useState<UserData>({
+    name: "",
+    aboutMe: "",
+    avatar: "",
+    email: "",
+    followers: 0,
+    following: 0,
+    password: "",
+    summary: "",
+    tag: "",
+  });
 
   const navigate = useNavigate();
 
@@ -21,58 +34,45 @@ function App() {
     }
   }, []);
 
-  const user: UserData = {
-    name: "John Doe",
-    email: "IzT9u@example.com",
-    password: "password",
-    summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    avatar: mountains,
-    followers: 100,
-    following: 50,
-    aboutMe: "I'm a software developer.",
-    tag: "johndoe",
+  useEffect(() => {
+    setMainPosts(startMainPosts);
+    setUserPosts(startUserPosts);
+    setCurrentUser(startUser);
+  }, []);
+
+  const handleAddPostSubmit = (post: PostData) => {
+    const newPost: PostData = {
+      // _id: post._id,
+      image: post.image,
+      description: post.description,
+      author: post.author,
+      date: post.date,
+      likes: post.likes,
+    };
+    setUserPosts([newPost, ...userPosts]);
+    setMainPosts([newPost, ...mainPosts]);
+    closeAllPopups();
   };
 
-  const posts: PostData[] = [
-    {
-      image: mountains,
-      description: "Mountains",
-      author: "John Doe",
-      date: "2022-01-01",
-      likes: 100,
-    },
-    {
-      image: mountains,
-      description: "Mountains",
-      author: "John Doe",
-      date: "2022-01-01",
-      likes: 100,
-    },
-    {
-      image: mountains,
-      description: "Mountains",
-      author: "John Doe",
-      date: "2022-01-01",
-      likes: 100,
-    },
-  ];
-
-  const userPosts: PostData[] = [
-    {
-      image: mountains,
-      description: "mooooooon",
-      author: "John Doe",
-      date: "2022-01-01",
-      likes: 100,
-    },
-    {
-      image: mountains,
-      description: "Mountains",
-      author: "John Doe",
-      date: "2022-01-01",
-      likes: 100,
-    },
-  ];
+  const handlePostLike = () => {
+    // const isLiked = post.likes.some((i) => i === currentUser._id);
+  
+    // if (!isLiked) {
+    //   setMainPosts((state) =>
+    //     state.map((c) =>
+    //       c._id === post._id ? { ...c, likes: [...c.likes, currentUser._id] } : c
+    //     )
+    //   );
+    // } else {
+    //   setMainPosts((state) =>
+    //     state.map((c) =>
+    //       c._id === post._id
+    //         ? { ...c, likes: c.likes.filter((i) => i !== currentUser._id) }
+    //         : c
+    //     )
+    //   );
+    // }
+  };
 
   const handleAddPostClick = () => {
     setIsAddPostPopupOpen(true);
@@ -86,14 +86,25 @@ function App() {
     <div className="app">
       <Navigation />
       <Routes>
-        <Route path="/" element={<MainPage posts={posts} />} />
+        <Route
+          path="/"
+          element={
+            <MainPage
+              posts={mainPosts}
+              onAddPost={handleAddPostClick}
+              currentUser={currentUser}
+              onPostLike={handlePostLike}
+            />
+          }
+        />
         <Route
           path="/profile"
           element={
             <ProfilePage
               userPosts={userPosts}
-              user={user}
+              currentUser={currentUser}
               onAddPost={handleAddPostClick}
+              onPostLike={handlePostLike}
             />
           }
         />
@@ -101,8 +112,9 @@ function App() {
       </Routes>
       <AddPostPopup
         isOpen={isAddPostPopupOpen}
-        isSuccess={false}
         onClose={closeAllPopups}
+        onSubmit={handleAddPostSubmit}
+        currentUser={currentUser}
       />
     </div>
   );

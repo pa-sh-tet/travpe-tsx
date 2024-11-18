@@ -15,7 +15,7 @@
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 12px;
-  background-color:#cfd0d2;
+  background-color:#cfd0d259;
   /* margin-bottom: 20px; */
 }
 
@@ -142,7 +142,7 @@
   background-color: transparent;
 }
 
-.profile__post-like-filled {
+.profile__post-like-button_active {
   background-image: url("../../images/HeartFilledIcon.svg");
 }
 
