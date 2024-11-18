@@ -10,13 +10,25 @@ function Post({
   likes,
   onPostLike,
   currentUser,
-}: PostData & { onPostLike: (post: PostData) => void } & { currentUser: UserData }) {
+  placeLocation,
+}: PostData & { onPostLike: (post: PostData) => void } & {
+  currentUser: UserData;
+}) {
   const location = useLocation();
   const isLiked = likes.includes(currentUser.tag);
 
   const handleLikeClick = () => {
-    const newLikes = isLiked ? likes.filter((tag) => tag !== currentUser.tag) : [...likes, currentUser.tag];
-    onPostLike({ image, description, author, date, likes: newLikes });
+    const newLikes = isLiked
+      ? likes.filter((tag) => tag !== currentUser.tag)
+      : [...likes, currentUser.tag];
+    onPostLike({
+      image,
+      description,
+      author,
+      date,
+      placeLocation,
+      likes: newLikes,
+    });
   };
 
   // TODO при наведении на картинку, посередине отображается локация
@@ -24,6 +36,7 @@ function Post({
     <div className="main__post">
       <div
         className="main__post-image"
+        // TODO при не совпадении картинки и блока, на фоне дублировать размытую картинку
         style={{ backgroundImage: "url(" + image + ")" }}
       ></div>
       <div className="main__post-container">
@@ -32,6 +45,11 @@ function Post({
           <div className="main__post-about">
             <p className="main__post-author">{author}</p>
             <p className="main__post-date">{date}</p>
+          </div>
+          <div className="main__post-location">
+            <div className="main__post-location-icon"></div>
+            {/* TODO Добавить отоюражение локации в гугл картах */}
+            <p className="main__post-location-value">{placeLocation}</p>
           </div>
           <div className="main__post-likes">
             <button
@@ -46,6 +64,7 @@ function Post({
       </div>
     </div>
   ) : (
+    // TODO Добавить локацию как в main
     <li className="profile__post">
       <div
         className="profile__post-image"

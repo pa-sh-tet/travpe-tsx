@@ -5,10 +5,12 @@ import mountains from "../images/mountains.png";
 export const startMainPosts: PostData[] = [
   {
     image: mountains,
-    description: "Mountains",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt illum, dolore ipsam saepe reprehenderit fuga natus quam. Odit eos voluptates aliquid ea facilis minus. Est quos labore et soluta dolore.",
     author: "John Doe",
     date: "June 15, 2022",
     likes: ["johndoe"],
+    placeLocation: "Mountains",
   },
   {
     image: mountains,
@@ -16,6 +18,7 @@ export const startMainPosts: PostData[] = [
     author: "John Doe",
     date: "June 15, 2022",
     likes: ["asdsadsadsad", "johndoe", "asdasc"],
+    placeLocation: "Mountains",
   },
   {
     image: mountains,
@@ -23,6 +26,7 @@ export const startMainPosts: PostData[] = [
     author: "John Doe",
     date: "June 15, 2022",
     likes: ["asdsadsadsad", "sadsad", "asdasc"],
+    placeLocation: "Mountains",
   },
 ];
 
@@ -33,6 +37,7 @@ export const startUserPosts: PostData[] = [
     author: "John Doe",
     date: "June 15, 2022",
     likes: ["johndoe", "sadsad", "asdasc"],
+    placeLocation: "Mountains",
   },
   {
     image: mountains,
@@ -40,6 +45,7 @@ export const startUserPosts: PostData[] = [
     author: "John Doe",
     date: "June 15, 2022",
     likes: ["asdsadsadsad", "sadsad", "asdasc"],
+    placeLocation: "Mountains",
   },
 ];
 

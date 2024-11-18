@@ -14,6 +14,7 @@ export default function AddPostPopup({
 }) {
   const [image, setImage] = useState<File | null | string>(null);
   const [description, setDescription] = useState<string>("");
+  const [placeLocation, setPlaceLocation] = useState<string>("");
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -24,6 +25,7 @@ export default function AddPostPopup({
       author: currentUser.name,
       date: "22-11-10",
       likes: [],
+      placeLocation,
     };
     onSubmit(newPost);
   };
@@ -44,9 +46,16 @@ export default function AddPostPopup({
     setDescription(event.target.value);
   };
 
+  const handlePlaceLocationChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setPlaceLocation(event.target.value);
+  };
+
   useEffect(() => {
     setImage(null);
     setDescription("");
+    setPlaceLocation("");
   }, [isOpen]);
 
   return (
@@ -61,19 +70,28 @@ export default function AddPostPopup({
             name="description"
             value={description}
             onChange={handleDescriptionChange}
+            required
           />
           <div className="popup__form-container">
             <div className="popup__form-inputs">
               <input
                 type="file"
                 className="popup__form-image-input"
+                placeholder="Upload image"
                 name="image"
-                // value={image}
                 onChange={handleImageChange}
                 required
               />
-              {/* <input type="text" className="popup__form-location-input" /> */}
             </div>
+            <input
+              type="text"
+              placeholder="Enter location"
+              className="popup__form-location-input"
+              name="placeLocation"
+              value={placeLocation}
+              onChange={handlePlaceLocationChange}
+              required
+            />
             <button className="popup__form-button">POST</button>
           </div>
         </form>

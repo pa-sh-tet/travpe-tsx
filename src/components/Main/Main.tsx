@@ -6,13 +6,32 @@ function Main({
   posts,
   currentUser,
   onAddPost,
-  onPostLike
+  onPostLike,
 }: {
   posts: PostData[];
   currentUser: UserData;
   onAddPost: () => void;
-  onPostLike: (post: PostData) => void
+  onPostLike: (post: PostData) => void;
 }) {
+  const tradingDestinations: Record<string, number> = posts.reduce(
+    (acc: Record<string, number>, post) => {
+      const location = post.placeLocation;
+      if (acc[location]) {
+        acc[location]++;
+      } else {
+        acc[location] = 1;
+      }
+      return acc;
+    },
+    {}
+  );
+
+  const sortedDestinations: string[] = Object.keys(tradingDestinations).sort(
+    (a, b) => tradingDestinations[b] - tradingDestinations[a]
+  );
+
+  const topDestinations: string[] = sortedDestinations.slice(0, 5);
+
   return (
     <section className="main">
       <div className="main__info-column">
@@ -50,18 +69,12 @@ function Main({
           {/* TODO сделать через массив, можно также сделать слайдер */}
           <h2 className="main__destinations-title">Trending Destinations</h2>
           <ul className="main__destinations-list">
-            <li className="main__destinations-item">
-              <div className="main__destinations-item-image"></div>
-              <p className="main__destinations-item-name">Bali, Indonesia</p>
-            </li>
-            <li className="main__destinations-item">
-              <div className="main__destinations-item-image"></div>
-              <p className="main__destinations-item-name">Santorini, Greece</p>
-            </li>
-            <li className="main__destinations-item">
-              <div className="main__destinations-item-image"></div>
-              <p className="main__destinations-item-name">Tokyo, Japan</p>
-            </li>
+            {topDestinations.map((destination) => (
+              <li className="main__destinations-item">
+                <div className="main__destinations-item-image"></div>
+                <p className="main__destinations-item-name">{destination}</p>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="main__tags block-style">
@@ -84,30 +97,17 @@ function Main({
         </button>
         <div className="main__posts">
           {posts.map((post, index) => (
-            <Post key={index} {...post} 
-            onPostLike={onPostLike}
-            currentUser={currentUser} />
+            <Post
+              key={index}
+              {...post}
+              onPostLike={onPostLike}
+              currentUser={currentUser}
+            />
           ))}
         </div>
       </div>
     </section>
   );
 }
-
-// TODO добавить попап формы добавления поста
-// {/* <form className="main__form block-style">
-//   <input
-//     placeholder="Share your travel experience..."
-//     type="text"
-//     className="main__form-text-input"
-//   />
-//   <div className="main__form-container">
-//     <div className="main__form-inputs">
-//       <input type="file" className="main__form-image-input" />
-//       <input type="text" className="main__form-location-input" />
-//     </div>
-//     <button className="main__form-button">POST</button>
-//   </div>
-// </form> */}
 
 export default Main;

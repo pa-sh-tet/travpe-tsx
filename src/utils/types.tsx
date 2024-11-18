@@ -6,6 +6,7 @@ export interface PostData {
   author: string;
   date: string;
   likes: string[];
+  placeLocation: string;
 }
 
 export interface UserData {

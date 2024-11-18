@@ -73,7 +73,6 @@
   margin-bottom: 3px;
 }
 
-/* TODO сделать корректные по пропорциям иконки */
 .home-icon {
   background-image: url("../../images/homeIcon.svg");
 }

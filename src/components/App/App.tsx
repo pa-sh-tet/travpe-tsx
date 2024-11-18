@@ -50,6 +50,7 @@ function App() {
       author: post.author,
       date: post.date,
       likes: post.likes,
+      placeLocation: post.placeLocation,
     };
     setUserPosts([newPost, ...userPosts]);
     setMainPosts([newPost, ...mainPosts]);
