@@ -4,14 +4,14 @@ import { PostData, UserData } from "../../utils/types";
 
 function Main({
   posts,
-  onAddPost,
   currentUser,
+  onAddPost,
   onPostLike
 }: {
   posts: PostData[];
-  onAddPost: () => void;
   currentUser: UserData;
-  onPostLike: () => void
+  onAddPost: () => void;
+  onPostLike: (post: PostData) => void
 }) {
   return (
     <section className="main">
@@ -84,7 +84,9 @@ function Main({
         </button>
         <div className="main__posts">
           {posts.map((post, index) => (
-            <Post key={index} {...post} onPostLike={onPostLike} currentUser={currentUser} />
+            <Post key={index} {...post} 
+            onPostLike={onPostLike}
+            currentUser={currentUser} />
           ))}
         </div>
       </div>

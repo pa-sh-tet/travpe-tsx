@@ -11,7 +11,7 @@ function Profile({
   userPosts: PostData[];
   currentUser: UserData;
   onAddPost: () => void;
-  onPostLike: () => void;
+  onPostLike: (post: PostData) => void;
 }) {
   return (
     <section className="profile">

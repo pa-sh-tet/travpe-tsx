@@ -3,14 +3,14 @@ import { PostData, UserData } from "../../utils/types";
 
 export default function AddPostPopup({
   isOpen,
+  currentUser,
   onClose,
   onSubmit,
-  currentUser,
 }: {
   isOpen: boolean;
+  currentUser: UserData;
   onClose: () => void;
   onSubmit: (data: PostData) => void;
-  currentUser: UserData;
 }) {
   const [image, setImage] = useState<File | null | string>(null);
   const [description, setDescription] = useState<string>("");
@@ -18,10 +18,11 @@ export default function AddPostPopup({
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newPost: PostData = {
+      // id: Date.now(),
       image,
       description,
       author: currentUser.name,
-      date: "22-11-22",
+      date: "22-11-10",
       likes: [],
     };
     onSubmit(newPost);

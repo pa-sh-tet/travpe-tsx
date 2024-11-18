@@ -11,7 +11,7 @@ function ProfilePage({
   userPosts: PostData[];
   currentUser: UserData;
   onAddPost: () => void;
-  onPostLike: () => void;
+  onPostLike: (post: PostData) => void;
 }) {
   return (
     <div className="profile-page">

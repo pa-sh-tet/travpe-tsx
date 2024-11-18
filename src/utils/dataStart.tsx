@@ -8,21 +8,21 @@ export const startMainPosts: PostData[] = [
     description: "Mountains",
     author: "John Doe",
     date: "June 15, 2022",
-    likes: ["asdsadsadsad"],
+    likes: ["johndoe"],
   },
   {
     image: mountains,
     description: "Mountains",
     author: "John Doe",
     date: "June 15, 2022",
-    likes: ['asdsadsadsad', 'sadsad', 'asdasc'],
+    likes: ["asdsadsadsad", "johndoe", "asdasc"],
   },
   {
     image: mountains,
     description: "Mountains",
     author: "John Doe",
     date: "June 15, 2022",
-    likes: ['asdsadsadsad', 'sadsad', 'asdasc'],
+    likes: ["asdsadsadsad", "sadsad", "asdasc"],
   },
 ];
 
@@ -32,14 +32,14 @@ export const startUserPosts: PostData[] = [
     description: "mooooooon",
     author: "John Doe",
     date: "June 15, 2022",
-    likes: ['asdsadsadsad', 'sadsad', 'asdasc'],
+    likes: ["johndoe", "sadsad", "asdasc"],
   },
   {
     image: mountains,
     description: "Mountains",
     author: "John Doe",
     date: "June 15, 2022",
-    likes: ['asdsadsadsad', 'sadsad', 'asdasc'],
+    likes: ["asdsadsadsad", "sadsad", "asdasc"],
   },
 ];
 

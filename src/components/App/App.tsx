@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import "./App.css";
 import AddPostPopup from "../AddPostPopup/AddPostPopup";
 import Navigation from "../Navigation/Navigation";
 import ProfilePage from "../../pages/ProfilePage/ProfilePage";
 import MainPage from "../../pages/MainPage/MainPage";
 import SettingsPage from "../../pages/SettingsPage/SettingsPage";
 import { PostData, UserData } from "../../utils/types";
-import { startMainPosts, startUserPosts, startUser } from "../../utils/dataStart";
+import {
+  startMainPosts,
+  startUserPosts,
+  startUser,
+} from "../../utils/dataStart";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -42,7 +45,6 @@ function App() {
 
   const handleAddPostSubmit = (post: PostData) => {
     const newPost: PostData = {
-      // _id: post._id,
       image: post.image,
       description: post.description,
       author: post.author,
@@ -54,24 +56,17 @@ function App() {
     closeAllPopups();
   };
 
-  const handlePostLike = () => {
-    // const isLiked = post.likes.some((i) => i === currentUser._id);
-  
-    // if (!isLiked) {
-    //   setMainPosts((state) =>
-    //     state.map((c) =>
-    //       c._id === post._id ? { ...c, likes: [...c.likes, currentUser._id] } : c
-    //     )
-    //   );
-    // } else {
-    //   setMainPosts((state) =>
-    //     state.map((c) =>
-    //       c._id === post._id
-    //         ? { ...c, likes: c.likes.filter((i) => i !== currentUser._id) }
-    //         : c
-    //     )
-    //   );
-    // }
+  const handleToggleLike = (post: PostData) => {
+    const postIndex = mainPosts.findIndex((p) => p.image === post.image);
+    if (postIndex !== -1) {
+      mainPosts[postIndex] = post;
+      setMainPosts([...mainPosts]);
+    }
+    const userPostIndex = userPosts.findIndex((p) => p.image === post.image);
+    if (userPostIndex !== -1) {
+      userPosts[userPostIndex] = post;
+      setUserPosts([...userPosts]);
+    }
   };
 
   const handleAddPostClick = () => {
@@ -91,9 +86,9 @@ function App() {
           element={
             <MainPage
               posts={mainPosts}
-              onAddPost={handleAddPostClick}
               currentUser={currentUser}
-              onPostLike={handlePostLike}
+              onAddPost={handleAddPostClick}
+              onPostLike={handleToggleLike}
             />
           }
         />
@@ -104,7 +99,7 @@ function App() {
               userPosts={userPosts}
               currentUser={currentUser}
               onAddPost={handleAddPostClick}
-              onPostLike={handlePostLike}
+              onPostLike={handleToggleLike}
             />
           }
         />

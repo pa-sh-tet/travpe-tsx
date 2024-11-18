@@ -10,10 +10,15 @@ function Post({
   likes,
   onPostLike,
   currentUser,
-}: PostData & { onPostLike: () => void } & { currentUser: UserData }) {
+}: PostData & { onPostLike: (post: PostData) => void } & { currentUser: UserData }) {
   const location = useLocation();
-  const isLiked = (likes as { _id: string }[]).some((i) => i._id === currentUser._id);
-  
+  const isLiked = likes.includes(currentUser.tag);
+
+  const handleLikeClick = () => {
+    const newLikes = isLiked ? likes.filter((tag) => tag !== currentUser.tag) : [...likes, currentUser.tag];
+    onPostLike({ image, description, author, date, likes: newLikes });
+  };
+
   // TODO при наведении на картинку, посередине отображается локация
   return location.pathname === "/" ? (
     <div className="main__post">
@@ -33,7 +38,7 @@ function Post({
               className={`main__post-like-button ${
                 isLiked ? "profile__post-like-button_active" : ""
               }`}
-              onClick={onPostLike}
+              onClick={handleLikeClick}
             ></button>
             <p className="main__post-likes-value">{likes.length}</p>
           </div>
@@ -55,6 +60,7 @@ function Post({
               className={`profile__post-like-button ${
                 isLiked ? "profile__post-like-button_active" : ""
               }`}
+              onClick={handleLikeClick}
             ></button>
             <p className="profile__post-likes-value">{likes.length}</p>
           </div>

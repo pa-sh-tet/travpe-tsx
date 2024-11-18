@@ -1,10 +1,11 @@
 export interface PostData {
+  // id: number;
   // _id: string;
   image: File | null | string;
   description: string;
   author: string;
   date: string;
-  likes: { _id: string}[];
+  likes: string[];
 }
 
 export interface UserData {

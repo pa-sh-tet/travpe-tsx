@@ -11,14 +11,14 @@ function MainPage({
   posts: PostData[];
   onAddPost: () => void;
   currentUser: UserData;
-  onPostLike: () => void;
+  onPostLike: (post: PostData) => void;
 }) {
   return (
     <div className="main-page">
       <Main
         posts={posts}
-        onAddPost={onAddPost}
         currentUser={currentUser}
+        onAddPost={onAddPost}
         onPostLike={onPostLike}
       />
     </div>
