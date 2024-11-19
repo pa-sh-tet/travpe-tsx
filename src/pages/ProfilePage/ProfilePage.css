@@ -1,0 +1,7 @@
+.profile-page {
+  display: flex;
+  justify-content: center;
+  max-width: 1280px;
+  height: 100%;
+  /* outline: 1px solid red; */
+}

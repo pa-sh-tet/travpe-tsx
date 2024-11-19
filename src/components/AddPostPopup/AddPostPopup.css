@@ -1,0 +1,85 @@
+.popup {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.1s linear, opacity 0.5s linear;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup_active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup__container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 40px;
+  padding: 25px;
+}
+
+.popup__title {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.popup__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.popup__form-text-input {
+
+}
+
+.popup__form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.popup__form-inputs {
+
+}
+
+.popup__form-image-input {
+
+}
+
+.popup__form-location-input {
+  
+}
+
+.popup__form-button {
+  margin: 0 auto;
+  background-color: #3B82F6;
+  color: #fff;
+  padding: 10px;
+  /* border: 1px solid #000; */
+  border-radius: 5px;
+}
+
+.popup__close-button {
+  background-image: url("../../images/AddIcon.svg");
+  background-size: cover;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  rotate: 45deg;
+  background-color: transparent;
+  border: none;
+}
