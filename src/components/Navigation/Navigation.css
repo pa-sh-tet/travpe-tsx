@@ -43,9 +43,10 @@
 .nav__links {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: end;
   width: 250px;
-  /* gap: 30px; */
+  gap: 30px;
 }
 
 .nav__link {
@@ -95,4 +96,9 @@
 
 .settings-icon_active {
   background-image: url("../../images/settingsIconFilled.png");
+}
+
+.login-icon {
+  background-image: url("../../images/LoginIcon.png");
+  margin-right: 5px;
 }

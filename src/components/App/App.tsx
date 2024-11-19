@@ -13,7 +13,7 @@ import {
 } from "../../utils/dataStart";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
   const [isAddPostPopupOpen, setIsAddPostPopupOpen] = useState<boolean>(false);
   const [mainPosts, setMainPosts] = useState<PostData[]>([]);
   const [userPosts, setUserPosts] = useState<PostData[]>([]);
@@ -33,15 +33,21 @@ function App() {
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate("/profile", { replace: true });
+      navigate("/settings", { replace: true });
+    } else {
+      navigate("/", { replace: true });
     }
-  }, []);
+  }, [isLoggedIn, navigate]);
 
   useEffect(() => {
     setMainPosts(startMainPosts);
     setUserPosts(startUserPosts);
     setCurrentUser(startUser);
   }, []);
+
+  function logOut() {
+    setIsLoggedIn(false);
+  }
 
   const handleAddPostSubmit = (post: PostData) => {
     const newPost: PostData = {
@@ -93,7 +99,7 @@ function App() {
 
   return (
     <div className="app">
-      <Navigation />
+      <Navigation isLoggedIn={isLoggedIn} />
       <Routes>
         <Route
           path="/"
@@ -119,7 +125,7 @@ function App() {
             />
           }
         />
-        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/settings" element={<SettingsPage logOut={logOut} />} />
       </Routes>
       <AddPostPopup
         isOpen={isAddPostPopupOpen}

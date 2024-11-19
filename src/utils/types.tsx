@@ -1,6 +1,4 @@
 export interface PostData {
-  // id: number;
-  // _id: string;
   image: File | null | string;
   description: string;
   author: string;

@@ -1,11 +1,12 @@
 import React from "react";
+import Settings from "../../components/Settings/Settings";
 
-function SettingsPage() {
+function SettingsPage({ logOut }: { logOut: () => void }) {
   return (
     <div className="settings-page">
-      <h1>Settings</h1>
+      <Settings logOut={logOut} />
     </div>
   );
-};
+}
 
 export default SettingsPage;
