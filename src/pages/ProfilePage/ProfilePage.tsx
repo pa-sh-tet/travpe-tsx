@@ -7,11 +7,13 @@ function ProfilePage({
   currentUser,
   onAddPost,
   onPostLike,
+  onPostDelete
 }: {
   userPosts: PostData[];
   currentUser: UserData;
   onAddPost: () => void;
   onPostLike: (post: PostData) => void;
+  onPostDelete: (post: PostData) => void;
 }) {
   return (
     <div className="profile-page">
@@ -20,6 +22,7 @@ function ProfilePage({
         currentUser={currentUser}
         onAddPost={onAddPost}
         onPostLike={onPostLike}
+        onPostDelete={onPostDelete}
       />
     </div>
   );

@@ -57,6 +57,19 @@ function App() {
     closeAllPopups();
   };
 
+  const handlePostDelete = (post: PostData) => {
+    const postIndex = userPosts.findIndex((p) => p.image === post.image);
+    if (postIndex !== -1) {
+      userPosts.splice(postIndex, 1);
+      setUserPosts([...userPosts]);
+    }
+    const mainPostIndex = mainPosts.findIndex((p) => p.image === post.image);
+    if (mainPostIndex !== -1) {
+      mainPosts.splice(mainPostIndex, 1);
+      setMainPosts([...mainPosts]);
+    }
+  };
+
   const handleToggleLike = (post: PostData) => {
     const postIndex = mainPosts.findIndex((p) => p.image === post.image);
     if (postIndex !== -1) {
@@ -90,6 +103,7 @@ function App() {
               currentUser={currentUser}
               onAddPost={handleAddPostClick}
               onPostLike={handleToggleLike}
+              onPostDelete={handlePostDelete}
             />
           }
         />
@@ -101,6 +115,7 @@ function App() {
               currentUser={currentUser}
               onAddPost={handleAddPostClick}
               onPostLike={handleToggleLike}
+              onPostDelete={handlePostDelete}
             />
           }
         />

@@ -11,7 +11,11 @@ function Post({
   onPostLike,
   currentUser,
   placeLocation,
-}: PostData & { onPostLike: (post: PostData) => void } & {
+  onPostDelete,
+}: PostData & {
+  onPostLike: (post: PostData) => void;
+  onPostDelete: (post: PostData) => void;
+} & {
   currentUser: UserData;
 }) {
   const location = useLocation();
@@ -28,6 +32,17 @@ function Post({
       date,
       placeLocation,
       likes: newLikes,
+    });
+  };
+
+  const handleDeleteClick = () => {
+    onPostDelete({
+      image,
+      description,
+      author,
+      date,
+      placeLocation,
+      likes,
     });
   };
 
@@ -85,6 +100,10 @@ function Post({
           </div>
         </div>
       </div>
+      <button
+        className="profile__post-delete"
+        onClick={handleDeleteClick}
+      ></button>
     </li>
   );
 }

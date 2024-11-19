@@ -6,7 +6,7 @@ export const startMainPosts: PostData[] = [
   {
     image: mountains,
     description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt illum, dolore ipsam saepe reprehenderit fuga natus quam. Odit eos voluptates aliquid ea facilis minus. Est quos labore et soluta dolore.",
+      "Lorem #dasasd ipsum dolor sit amet consectetur, adipisicing elit. Sunt illum, dolore ipsam saepe reprehenderit fuga natus quam. Odit eos voluptates aliquid ea facilis minus. Est quos labore et soluta dolore.",
     author: "John Doe",
     date: "June 15, 2022",
     likes: ["johndoe"],

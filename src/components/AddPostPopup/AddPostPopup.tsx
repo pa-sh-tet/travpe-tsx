@@ -15,15 +15,21 @@ export default function AddPostPopup({
   const [image, setImage] = useState<File | null | string>(null);
   const [description, setDescription] = useState<string>("");
   const [placeLocation, setPlaceLocation] = useState<string>("");
+  const date = new Date();
+  // Для версии на русском
+  // const month = date.toLocaleString("default", { month: "long" });
+  const month = date.toLocaleString("en-US", { month: "long" });
+  const day = date.getDate();
+  const year = date.getFullYear();
+  const formattedDate = `${month} ${day}, ${year}`;
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newPost: PostData = {
-      // id: Date.now(),
       image,
       description,
       author: currentUser.name,
-      date: "22-11-10",
+      date: formattedDate,
       likes: [],
       placeLocation,
     };

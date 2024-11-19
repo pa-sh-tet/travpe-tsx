@@ -7,11 +7,13 @@ function Main({
   currentUser,
   onAddPost,
   onPostLike,
+  onPostDelete,
 }: {
   posts: PostData[];
   currentUser: UserData;
   onAddPost: () => void;
   onPostLike: (post: PostData) => void;
+  onPostDelete: (post: PostData) => void;
 }) {
   const tradingDestinations: Record<string, number> = posts.reduce(
     (acc: Record<string, number>, post) => {
@@ -32,6 +34,27 @@ function Main({
 
   const topDestinations: string[] = sortedDestinations.slice(0, 5);
 
+  const hashtags: Record<string, number> = posts.reduce(
+    (acc: Record<string, number>, post) => {
+      const text = post.description;
+      const regex = /\B#\w+/g;
+      const matches = text.match(regex);
+      if (matches) {
+        matches.forEach((hashtag) => {
+          acc[hashtag] = (acc[hashtag] || 0) + 1;
+        });
+      }
+      return acc;
+    },
+    {}
+  );
+
+  const sortedHashtags: string[] = Object.keys(hashtags).sort(
+    (a, b) => hashtags[b] - hashtags[a]
+  );
+
+  const trendingTags: string[] = sortedHashtags.slice(0, 5);
+
   return (
     <section className="main">
       <div className="main__info-column">
@@ -48,6 +71,7 @@ function Main({
           </div>
           <div className="main__profile-stats">
             <div className="main__profile-stats-item">
+              {/* TODO отображать посты пользователя */}
               <p className="main__profile-stats-value">{posts.length}</p>
               <p className="main__profile-stats-name">Posts</p>
             </div>
@@ -80,11 +104,10 @@ function Main({
         <div className="main__tags block-style">
           <h2 className="main__tags-title">Trending Tags</h2>
           <ul className="main__tags-list">
-            <li className="main__tags-item">#beachlife</li>
-            <li className="main__tags-item">#beachlife</li>
-            <li className="main__tags-item">#beachlife</li>
-            <li className="main__tags-item">#beachlife</li>
-            <li className="main__tags-item">#beachlife</li>
+            {trendingTags.map((hashtag) => (
+              <li className="main__tags-item">{hashtag}</li>
+            ))}
+            {/* <li className="main__tags-item">#beachlife</li> */}
           </ul>
         </div>
       </div>
@@ -102,6 +125,7 @@ function Main({
               {...post}
               onPostLike={onPostLike}
               currentUser={currentUser}
+              onPostDelete={onPostDelete}
             />
           ))}
         </div>

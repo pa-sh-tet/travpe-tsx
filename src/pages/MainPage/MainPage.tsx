@@ -7,11 +7,13 @@ function MainPage({
   onAddPost,
   currentUser,
   onPostLike,
+  onPostDelete
 }: {
   posts: PostData[];
   onAddPost: () => void;
   currentUser: UserData;
   onPostLike: (post: PostData) => void;
+  onPostDelete: (post: PostData) => void;
 }) {
   return (
     <div className="main-page">
@@ -20,6 +22,7 @@ function MainPage({
         currentUser={currentUser}
         onAddPost={onAddPost}
         onPostLike={onPostLike}
+        onPostDelete={onPostDelete}
       />
     </div>
   );

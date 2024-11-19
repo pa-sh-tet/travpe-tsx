@@ -7,11 +7,13 @@ function Profile({
   currentUser,
   onAddPost,
   onPostLike,
+  onPostDelete
 }: {
   userPosts: PostData[];
   currentUser: UserData;
   onAddPost: () => void;
   onPostLike: (post: PostData) => void;
+  onPostDelete: (post: PostData) => void;
 }) {
   return (
     <section className="profile">
@@ -102,6 +104,7 @@ function Profile({
               {...post}
               onPostLike={onPostLike}
               currentUser={currentUser}
+              onPostDelete={onPostDelete}
             />
           ))}
         </ul>
