@@ -41,7 +41,7 @@ function Register({
         </div>
         <div className="login__form-item">
           <label htmlFor="password" className="login__label">
-            Password
+            Password 
           </label>
           <input
             className="login__input"
