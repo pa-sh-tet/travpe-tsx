@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Login({
-  onLogin,
+function Register({
+  onRegister,
 }: {
-  onLogin: (email: string, password: string) => void;
+  onRegister: (email: string, password: string) => void;
 }) {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -19,13 +19,13 @@ function Login({
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onLogin(email, password);
+    onRegister(email, password);
   };
 
   return (
     <section className="login block-style">
       <Link className="login__logo-link" to="/" />
-      <h2 className="login__title">Welcome back</h2>
+      <h2 className="login__title">Create an account</h2>
       <form className="login__form" onSubmit={handleSubmit}>
         <div className="login__form-item">
           <label htmlFor="email" className="login__label">
@@ -52,19 +52,20 @@ function Login({
             // placeholder="Password"
           />
         </div>
+        {/* TODO добавить loading при сабмите */}
         <button className="login__button" type="submit">
-          Sign in
+          Sign up
         </button>
         <p className="login__text">Forgot your password?</p>
       </form>
       <p className="login__register">
-        Don't have an account?
-        <Link className="login__link" to="/register">
-          Sign up
+        Already have an account?
+        <Link className="login__link" to="/login">
+          Sign in
         </Link>
       </p>
     </section>
   );
 }
 
-export default Login;
+export default Register;

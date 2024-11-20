@@ -11,6 +11,6 @@
 @import url("./pages/SettingsPage/SettingsPage.css");
 @import url("./components/AddPostPopup/AddPostPopup.css");
 @import url("./components/Settings/Settings.css");
-@import url("./");
-@import url("./");
+@import url("./components/Register/Register.css");
+@import url("./pages/RegisterPage/RegisterPage.css");
 @import url("./");

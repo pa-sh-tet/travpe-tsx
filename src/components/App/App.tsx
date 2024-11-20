@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import AddPostPopup from "../AddPostPopup/AddPostPopup";
 import Navigation from "../Navigation/Navigation";
+import LoginPage from "../../pages/LoginPage/LoginPage";
 import ProfilePage from "../../pages/ProfilePage/ProfilePage";
 import MainPage from "../../pages/MainPage/MainPage";
 import SettingsPage from "../../pages/SettingsPage/SettingsPage";
@@ -10,10 +11,12 @@ import {
   startMainPosts,
   startUserPosts,
   startUser,
+  startUsers,
 } from "../../utils/dataStart";
+import RegisterPage from "../../pages/RegisterPage/RegisterPage";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [isAddPostPopupOpen, setIsAddPostPopupOpen] = useState<boolean>(false);
   const [mainPosts, setMainPosts] = useState<PostData[]>([]);
   const [userPosts, setUserPosts] = useState<PostData[]>([]);
@@ -30,14 +33,15 @@ function App() {
   });
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    if (isLoggedIn) {
-      navigate("/settings", { replace: true });
-    } else {
-      navigate("/", { replace: true });
+    if (!isLoggedIn) {
+      //   navigate("/", { replace: true });
+      // } else {
+      navigate("/login", { replace: true });
     }
-  }, [isLoggedIn, navigate]);
+  }, []);
 
   useEffect(() => {
     setMainPosts(startMainPosts);
@@ -45,8 +49,27 @@ function App() {
     setCurrentUser(startUser);
   }, []);
 
+  function handleRegister(email: string, password: string) {
+    startUsers.push({ ...startUser, email, password });
+    setIsLoggedIn(true);
+    navigate("/", { replace: true });
+  }
+
+  function handleLogin(email: string, password: string) {
+    const user = startUsers.find(
+      (u) => u.email === email && u.password === password
+    );
+
+    if (user) {
+      setIsLoggedIn(true);
+      setCurrentUser(user);
+      navigate("/", { replace: true });
+    }
+  }
+
   function logOut() {
     setIsLoggedIn(false);
+    navigate("/", { replace: true });
   }
 
   const handleAddPostSubmit = (post: PostData) => {
@@ -99,8 +122,17 @@ function App() {
 
   return (
     <div className="app">
-      <Navigation isLoggedIn={isLoggedIn} />
+      {location.pathname !== "/login" && location.pathname !== "/register" && <Navigation isLoggedIn={isLoggedIn} />}
       <Routes>
+        <Route path="*" element={<div>404</div>}></Route>
+        <Route
+          path="/login"
+          element={<LoginPage onLogin={handleLogin} />}
+        ></Route>
+        <Route
+          path="/register"
+          element={<RegisterPage onRegister={handleRegister} />}
+        ></Route>
         <Route
           path="/"
           element={

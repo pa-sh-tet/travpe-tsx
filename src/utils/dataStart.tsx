@@ -49,6 +49,20 @@ export const startUserPosts: PostData[] = [
   },
 ];
 
+export const startUsers: UserData[] = [
+  {
+    name: "name",
+    email: "email@email.com",
+    password: "password",
+    summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    avatar: mountains,
+    followers: 100,
+    following: 50,
+    aboutMe: "I'm a software developer.",
+    tag: "johndoe",
+  },
+];
+
 export const startUser: UserData = {
   name: "admin",
   email: "IzT9u@example.com",
